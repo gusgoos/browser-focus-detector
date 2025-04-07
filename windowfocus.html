@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Demo that detects when the browser window loses focus." />
+  <title>Browser Focus Detector</title>
+  <style>
+    body {
+      background-color: white;
+      transition: background-color 0.5s;
+      font-family: sans-serif;
+    }
+    #warning {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: red;
+      color: white;
+      font-size: 2em;
+      text-align: left;
+      padding: 2rem;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Browser Focus Detector</h1>
+    <p>Switch tabs or click outside this window to simulate losing browser focus.</p>
+    <div id="warning" role="alert" aria-live="assertive">
+      Window focus lost.
+    </div>
+  </main>
+  <script>
+    const warningElement = document.getElementById('warning');
+    window.addEventListener('blur', () => {
+      warningElement.style.display = 'block';
+      document.body.style.backgroundColor = 'red';
+    });
+
+    window.addEventListener('focus', () => {
+      warningElement.style.display = 'none';
+      document.body.style.backgroundColor = 'white';
+    });
+  </script>
+</body>
+</html>
