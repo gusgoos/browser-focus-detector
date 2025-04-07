@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Page that triggers an alert when browser focus is lost." />
+  <title>Browser Focus Detector (Alert Version)</title>
+</head>
+<body>
+  <h1>Browser Focus Detector (Alert Version)</h1>
+  <p>Switch tabs or click outside this window to simulate losing browser focus.</p>
+
+  <script>
+    window.addEventListener('blur', () => {
+      const isHidden = document.hidden;
+      const hasFocus = document.hasFocus();
+
+      if (isHidden || !hasFocus) {
+        alert("Focus lost: you switched tabs or clicked outside the window.");
+      }
+    });
+  </script>
+</body>
+</html>
